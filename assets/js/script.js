@@ -39,7 +39,8 @@ const lightboxClose = lightboxModal?.querySelector(".lightbox-close");
 const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
 
 lightboxTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", () => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
     const src = trigger.getAttribute("data-lightbox-src");
     if (!src || !lightboxModal || !lightboxImage) return;
     lightboxImage.src = src;
