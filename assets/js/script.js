@@ -43,7 +43,13 @@ lightboxTriggers.forEach((trigger) => {
     event.preventDefault();
     const src = trigger.getAttribute("data-lightbox-src");
     if (!src || !lightboxModal || !lightboxImage) return;
+
     lightboxImage.src = src;
+    if (trigger.classList.contains("brand-logo")) {
+      lightboxImage.setAttribute("data-lightbox-type", "logo");
+    } else {
+      lightboxImage.removeAttribute("data-lightbox-type");
+    }
     lightboxModal.classList.add("open");
     lightboxModal.setAttribute("aria-hidden", "false");
   });
@@ -55,6 +61,7 @@ const closeLightbox = () => {
   lightboxModal.setAttribute("aria-hidden", "true");
   if (lightboxImage) {
     lightboxImage.src = "";
+    lightboxImage.removeAttribute("data-lightbox-type");
   }
 };
 

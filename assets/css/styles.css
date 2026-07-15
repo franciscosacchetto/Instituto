@@ -221,8 +221,14 @@ h3 {
 .lightbox-modal img {
   max-height: 90vh;
   max-width: 90vw;
-  border-radius: 50%;
+  border-radius: 1rem;
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+}
+
+.lightbox-modal img[data-lightbox-type="logo"] {
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .lightbox-close {
